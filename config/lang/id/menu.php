@@ -10,7 +10,7 @@ return [
     'product_data' => 'Data Produk',
     'products' => 'Produk',
     'patterns' => 'Pola',
-    'collars' => 'Kera',
+    'collars' => 'Kerah',
     'variant_data' => 'Data Variasi',
     'variants' => 'Variasi',
     'variants_2' => 'Variasi 2',

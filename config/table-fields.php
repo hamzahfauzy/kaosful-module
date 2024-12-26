@@ -103,6 +103,10 @@ return array (
     array (
       'label' => 'Harga',
       'type' => 'number',
+      'attr' => [
+        'data-type' => 'currency',
+        'class' => 'form-control'
+      ]
     ),
     'status' => 
     array (
@@ -211,16 +215,28 @@ return array (
     array (
       'label' => 'Harga',
       'type' => 'number',
+      'attr' => [
+        'data-type' => 'currency',
+        'class' => 'form-control'
+      ]
     ),
     'min_order' => 
     array (
       'label' => 'Min. Order',
       'type' => 'number',
+      'attr' => [
+        'data-type' => 'currency',
+        'class' => 'form-control'
+      ]
     ),
     'max_order' => 
     array (
       'label' => 'Max. Order',
       'type' => 'number',
+      'attr' => [
+        'data-type' => 'currency',
+        'class' => 'form-control'
+      ]
     ),
     'unit' => 
     array (
