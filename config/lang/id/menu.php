@@ -12,7 +12,7 @@ return [
     'patterns' => 'Pola',
     'collars' => 'Kerah',
     'variant_data' => 'Data Variasi',
-    'variants' => 'Variasi',
+    'variants' => 'Variasi 1',
     'variants_2' => 'Variasi 2',
     'variants_3' => 'Variasi 3',
     'variants_4' => 'Variasi 4',
