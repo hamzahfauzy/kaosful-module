@@ -191,6 +191,10 @@ return array (
     array (
       'label' => 'Harga',
       'type' => 'number',
+      'attr' => [
+        'data-type' => 'currency',
+        'class' => 'form-control'
+      ]
     ),
     'status' => 
     array (
@@ -275,6 +279,10 @@ return array (
     array (
       'label' => 'Harga',
       'type' => 'number',
+      'attr' => [
+        'data-type' => 'currency',
+        'class' => 'form-control'
+      ]
     ),
     'status' => 
     array (
@@ -299,6 +307,10 @@ return array (
     array (
       'label' => 'Harga',
       'type' => 'number',
+      'attr' => [
+        'data-type' => 'currency',
+        'class' => 'form-control'
+      ]
     ),
     'status' => 
     array (
@@ -323,6 +335,10 @@ return array (
     array (
       'label' => 'Harga',
       'type' => 'number',
+      'attr' => [
+        'data-type' => 'currency',
+        'class' => 'form-control'
+      ]
     ),
     'status' => 
     array (
@@ -347,6 +363,10 @@ return array (
     array (
       'label' => 'Harga',
       'type' => 'number',
+      'attr' => [
+        'data-type' => 'currency',
+        'class' => 'form-control'
+      ]
     ),
     'status' => 
     array (
@@ -371,6 +391,10 @@ return array (
     array (
       'label' => 'Harga',
       'type' => 'number',
+      'attr' => [
+        'data-type' => 'currency',
+        'class' => 'form-control'
+      ]
     ),
     'status' => 
     array (
