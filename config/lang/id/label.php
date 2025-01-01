@@ -18,4 +18,5 @@ return [
     'mst_customers' => 'Pelanggan',
     'mst_employees' => 'Karyawan',
     'mst_banks' => 'Bank',
+    'trn_payments' => 'Pembayaran'
 ];

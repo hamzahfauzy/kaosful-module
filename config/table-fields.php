@@ -133,7 +133,7 @@ return array (
     ),
     'address_2' => 
     array (
-      'label' => 'Alamat',
+      'label' => 'Alamat 2',
       'type' => 'textarea',
       'attr' => 
       array (
@@ -152,7 +152,7 @@ return array (
     ),
     'description' => 
     array (
-      'label' => 'description',
+      'label' => 'Deskripsi',
       'type' => 'textarea',
       'attr' => 
       array (
@@ -403,4 +403,49 @@ return array (
     ),
     '_userstamp' => true,
   ),
+  'trn_orders' => [
+
+  ],
+  'trn_order_items' => [
+
+  ],
+  'trn_payments' => [
+    'code' => [
+      'label' => 'No. Bayar',
+      'type' => 'text'
+    ],
+    'order_id' => [
+      'label' => 'No. Order',
+      'type' => 'options-obj:trn_orders,id,order_number'
+    ],
+    'payment_date' => [
+      'label' => 'Tgl. Bayar',
+      'type' => 'date',
+    ],
+    'payment_type' => [
+      'label' => 'Tipe Bayar',
+      'type' => 'options:DP / Tanda Jadi|Pelunasan',
+    ],
+    'total' => [
+      'label' => 'Nilai Bayar',
+      'type' => 'number',
+      'attr' => [
+        'data-type' => 'currency',
+        'class' => 'form-control'
+      ]
+    ],
+    'payment_method' => [
+      'label' => 'Jenis Bayar',
+      'type' => 'options:CASH|TRANSFER|E-MONEY|BG (BILYET GIRO)',
+    ],
+    'bank_id' => [
+      'label' => 'Bank',
+      'type' => 'options-obj:mst_banks,id,name',
+    ],
+    'description' => [
+      'label' => 'Keterangan',
+      'type' => 'text',
+    ],
+
+  ]
 );

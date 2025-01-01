@@ -126,4 +126,163 @@ return [
             
         ]
     ],
+    [
+        'label' => 'kaosful.menu.order_data',
+        'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-receipt',
+        'activeState' => [
+            'kaosful.orders.new',
+            'kaosful.orders.administration',
+        ],
+        'items' => [
+            [
+                'label' => 'kaosful.menu.new_order',
+                'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-compress-arrows-alt',
+                'route' => routeTo('kaosful/orders/new'),
+                'activeState' => 'kaosful.orders.new'
+            ],
+            [
+                'label' => 'kaosful.menu.pic_administration',
+                'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-stamp',
+                'route' => routeTo('kaosful/orders/administration'),
+                'activeState' => 'kaosful.orders.administration'
+            ],
+        ]
+    ],
+    [
+        'label' => 'kaosful.menu.payment_data',
+        'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-cash-register',
+        'activeState' => [
+            'kaosful.mst_payments'
+        ],
+        'items' => [
+            [
+                'label' => 'kaosful.menu.payment_input',
+                'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-compress-arrows-alt',
+                'route' => routeTo('crud/index',['table' => 'trn_payments']),
+                'activeState' => 'kaosful.mst_payments'
+            ],
+        ]
+    ],
+    [
+        'label' => 'kaosful.menu.job_data',
+        'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-list-check',
+        'activeState' => [
+            'kaosful.jobs.fulfillment',
+            'kaosful.jobs.close',
+            'kaosful.jobs.order_status',
+            'kaosful.jobs.payment_status',
+        ],
+        'items' => [
+            [
+                'label' => 'kaosful.menu.fulfillment_order',
+                'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-compress-arrows-alt',
+                'route' => routeTo('kaosful/jobs/fulfillment'),
+                'activeState' => 'kaosful.jobs.fulfillment'
+            ],
+            [
+                'label' => 'kaosful.menu.close_order',
+                'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-stamp',
+                'route' => routeTo('kaosful/jobs/close'),
+                'activeState' => 'kaosful.jobs.close'
+            ],
+            [
+                'label' => 'kaosful.menu.update_order_status',
+                'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-stamp',
+                'route' => routeTo('kaosful/jobs/order-status'),
+                'activeState' => 'kaosful.jobs.order_status'
+            ],
+            [
+                'label' => 'kaosful.menu.update_payment_status',
+                'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-stamp',
+                'route' => routeTo('kaosful/jobs/payment-status'),
+                'activeState' => 'kaosful.jobs.payment_status'
+            ],
+        ]
+    ],
+    [
+        'label' => 'kaosful.menu.prints',
+        'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-print',
+        'activeState' => [
+            'kaosful.prints.order_attachment',
+            'kaosful.prints.invoice',
+        ],
+        'items' => [
+            [
+                'label' => 'kaosful.menu.print_order_attachment',
+                'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-compress-arrows-alt',
+                'route' => routeTo('kaosful/prints/order'),
+                'activeState' => 'kaosful.prints.order_attachment'
+            ],
+            [
+                'label' => 'kaosful.menu.print_invoice',
+                'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-stamp',
+                'route' => routeTo('kaosful/prints/invoice'),
+                'activeState' => 'kaosful.prints.invoice'
+            ],
+        ]
+    ],
+    [
+        'label' => 'kaosful.menu.reports',
+        'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-scroll',
+        'activeState' => [
+            'kaosful.reports.transaction',
+            'kaosful.reports.order',
+            'kaosful.reports.detail_order',
+            'kaosful.reports.detail_orders_',
+            'kaosful.reports.fulfillment_order',
+            'kaosful.reports.outstanding_order',
+            'kaosful.reports.no_paid_off_order',
+            'kaosful.reports.payment_order',
+        ],
+        'items' => [
+            [
+                'label' => 'kaosful.menu.transaction',
+                'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-compress-arrows-alt',
+                'route' => routeTo('kaosful/reports/transaction'),
+                'activeState' => 'kaosful.reports.transaction'
+            ],
+            [
+                'label' => 'kaosful.menu.orders',
+                'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-stamp',
+                'route' => routeTo('kaosful/reports/order'),
+                'activeState' => 'kaosful.reports.order'
+            ],
+            [
+                'label' => 'kaosful.menu.detail_orders',
+                'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-stamp',
+                'route' => routeTo('kaosful/reports/detail-order'),
+                'activeState' => 'kaosful.reports.detail_order'
+            ],
+            [
+                'label' => 'kaosful.menu.detail_orders_2',
+                'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-stamp',
+                'route' => routeTo('kaosful/reports/detail-order-2'),
+                'activeState' => 'kaosful.reports.detail_order_2'
+            ],
+            [
+                'label' => 'kaosful.menu.fulfillment_orders',
+                'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-stamp',
+                'route' => routeTo('kaosful/reports/fulfillment-order'),
+                'activeState' => 'kaosful.reports.fulfillment_order'
+            ],
+            [
+                'label' => 'kaosful.menu.outstanding_orders',
+                'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-stamp',
+                'route' => routeTo('kaosful/reports/outstanding-order'),
+                'activeState' => 'kaosful.reports.outstanding_order'
+            ],
+            [
+                'label' => 'kaosful.menu.no_paid_off_orders',
+                'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-stamp',
+                'route' => routeTo('kaosful/reports/no-paid-off-order'),
+                'activeState' => 'kaosful.reports.no_paid_off_order'
+            ],
+            [
+                'label' => 'kaosful.menu.payment_orders',
+                'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-stamp',
+                'route' => routeTo('kaosful/reports/payment-order'),
+                'activeState' => 'kaosful.reports.payment_order'
+            ],
+        ]
+    ],
 ];
