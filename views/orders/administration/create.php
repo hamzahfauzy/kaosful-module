@@ -2,7 +2,7 @@
 get_header() ;
 $attr  = ['class'=>"form-control"];
 ?>
-<style>.select2 {width:100% !important}</style>
+<style>.select2 {width:100% !important; min-width: 350px;}</style>
 <div class="card">
     <div class="card-header d-flex flex-grow-1 align-items-center">
         <p class="h4 m-0"><?php get_title() ?></p>
@@ -15,6 +15,9 @@ $attr  = ['class'=>"form-control"];
     <div class="card-body">
         <?php if($error_msg): ?>
         <div class="alert alert-danger"><?=$error_msg?></div>
+        <?php endif ?>
+        <?php if($success_msg): ?>
+        <div class="alert alert-success"><?=$success_msg?></div>
         <?php endif ?>
         <form action="" method="post" enctype="multipart/form-data">
             <div class="row">
@@ -49,6 +52,12 @@ $attr  = ['class'=>"form-control"];
                             <input type="text" class="form-control" readonly value="Rp. <?=number_format($data->total_value)?>">
                         </div>
                     </div>
+                    <div class="row mb-3">
+                        <label class="mb-2 col-4">Foto Depan</label>
+                        <div class="col-8">
+                            <input type="file" class="form-control" name="pic_1">
+                        </div>
+                    </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="row mb-3">
@@ -81,6 +90,12 @@ $attr  = ['class'=>"form-control"];
                             <input type="text" class="form-control" readonly value="<?=$data->total_qty?>">
                         </div>
                     </div>
+                    <div class="row mb-3">
+                        <label class="mb-2 col-4">Foto Belakang</label>
+                        <div class="col-8">
+                            <input type="file" class="form-control" name="pic_2">
+                        </div>
+                    </div>
                 </div>
             </div>
             <?= csrf_field() ?>
@@ -89,17 +104,42 @@ $attr  = ['class'=>"form-control"];
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Deskripsi Keterangan Order</th>
-                            <th>@Harga</th>
-                            <th>Qty</th>
-                            <th>Satuan</th>
-                            <th>Jumlah Order</th>
-                            <th><button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#itemModal">Tambah Item</button></th>
+                            <th>Item</th>
+                            <th>Nama</th>
+                            <th>Nomor</th>
+                            <th>Catatan</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr id="empty_item">
-                            <td colspan="7" class="text-center"><i>Belum ada item</i></td>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <?= \Core\Form::input('options-obj:trn_order_items,id,name|order_id,'.$data->id, 'item', array_merge($attr, ['class' => 'form-control', 'placeholder' => 'Pilih'])) ?>
+                            </td>
+                            <td>
+                                <input type="text" name="name" id="name" class="form-control">
+                            </td>
+                            <td>
+                                <input type="text" name="number_description" id="number_description" class="form-control">
+                            </td>
+                            <td>
+                                <input type="text" name="description" id="description" class="form-control">
+                            </td>
+                            <td><button type="button" class="btn btn-info btn-sm add-item-button">Tambah Item</button></td>
+                        </tr>
+                        <?php foreach($data->names as $item): ?>
+                        <tr>
+                            <td><?=$item->order_number?></td>
+                            <td><?=$item->item->name?></td>
+                            <td><?=$item->name?></td>
+                            <td><?=$item->number_description?></td>
+                            <td><?=$item->description?></td>
+                            <td><a href="<?=routeTo('crud/delete',['table'=>'trn_order_names','id'=>$item->id])?>" onclick="if(confirm('Apakah anda yakin akan menghapus data ini ?')){return true}else{return false}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a></td>
+                        </tr>
+                        <?php endforeach ?>
+                        <tr id="empty_item" <?= !empty($data->names) ? 'style="display:none"' : ''?>>
+                            <td colspan="6" class="text-center"><i>Belum ada item</i></td>
                         </tr>
                     </tbody>
                 </table>

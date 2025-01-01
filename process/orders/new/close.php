@@ -5,7 +5,7 @@ use Core\Request;
 
 $db = new Database;
 $db->update('trn_orders',[
-    'status' => 'APPROVE'
+    'order_close_date' => date('Y-m-d')
 ], [
     'id' => $_GET['id']
 ]);

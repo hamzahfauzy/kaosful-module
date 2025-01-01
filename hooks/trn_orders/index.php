@@ -23,7 +23,7 @@ $where = $where ." ". $having;
 
 $data = []; $total = 0;
 
-if($route == 'kaosful/orders/new' || $route == 'kaosful/orders/administration')
+if(in_array($route, ['kaosful/orders/new','kaosful/orders/administration','kaosful/jobs/order-status','kaosful/jobs/close','kaosful/jobs/fulfillment']))
 {
     $this->db->query = "SELECT trn_orders.*, 
                                 CONCAT(trn_orders.order_date, ' <br> ', trn_orders.order_done_date) as tgl_order, 

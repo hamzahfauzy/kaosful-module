@@ -70,6 +70,7 @@ CREATE TABLE trn_order_items (
 CREATE TABLE trn_order_names (
     id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT DEFAULT NULL,
+    order_item_id INT DEFAULT NULL,
     product_id INT DEFAULT NULL,
     variant_id INT DEFAULT NULL,
     size_id INT DEFAULT NULL,
@@ -80,6 +81,7 @@ CREATE TABLE trn_order_names (
     description TEXT DEFAULT NULL,
 
     CONSTRAINT fk_trn_order_names_order_id FOREIGN KEY (order_id) REFERENCES trn_orders(id) ON DELETE SET NULL,
+    CONSTRAINT fk_trn_order_names_order_item_id FOREIGN KEY (order_item_id) REFERENCES trn_order_items(id) ON DELETE SET NULL,
     CONSTRAINT fk_trn_order_names_product_id FOREIGN KEY (product_id) REFERENCES mst_products(id) ON DELETE SET NULL,
     CONSTRAINT fk_trn_order_names_variant_id FOREIGN KEY (variant_id) REFERENCES mst_variants(id) ON DELETE SET NULL,
     CONSTRAINT fk_trn_order_names_size_id FOREIGN KEY (size_id) REFERENCES mst_sizes(id) ON DELETE SET NULL

@@ -447,5 +447,8 @@ return array (
       'type' => 'text',
     ],
 
+  ],
+  'trn_order_names' => [
+    
   ]
 );
