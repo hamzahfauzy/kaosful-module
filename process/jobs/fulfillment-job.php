@@ -36,10 +36,18 @@ if(Request::isMethod('POST'))
     // print_r($_POST);die;
     foreach($_POST['completed'] as $id => $qty)
     {
+        $item = $db->single('trn_order_items', [
+            'id' => $id,
+        ]);
+
+        $time_done = $item->time_done ?? date('Y-m-d H:i:s');
+        $time_done = $qty == 0 ? NULL : $time_done;
+        
         $db->update('trn_order_items',[
-            'qty_done' => $qty
+            'qty_done' => $qty,
+            'time_done' => $time_done
         ], [
-            'id' => $id
+            'id' => $id,
         ]);
     }
 
