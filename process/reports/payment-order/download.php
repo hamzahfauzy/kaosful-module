@@ -26,13 +26,13 @@ $fields     = [
         'label' => 'Jenis Bayar',
         'type' => 'text'
     ],
-    'bank_id' => [
+    'bank' => [
         'label' => 'Bank',
-        'type' => 'options-obj:mst_banks,id,name'
+        'type' => 'text'
     ],
-    'order_id' => [
+    'order_number' => [
         'label' => 'No. Order',
-        'type' => 'options-obj:trn_orders,id,order_number'
+        'type' => 'text'
     ],
     'customer' => [
         'label' => 'Customer',
@@ -114,10 +114,13 @@ $order_clause = "ORDER BY ".$col_order." ".$order[0]['dir'];
 
 $query = "SELECT 
             $tableName.*, 
-            C.name customer
+            C.name customer,
+            D.name bank,
+            B.order_number
         FROM $tableName 
         Left Join trn_orders B On B.id = $tableName.order_id 
         Left Join mst_customers C On C.id = B.customer_id 
+        Left Join mst_banks D On D.id = $tableName.bank_id 
         $where";
 
 $db->query = "$query $order_clause LIMIT $start,$length";

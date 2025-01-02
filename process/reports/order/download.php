@@ -18,17 +18,17 @@ $fields     = [
         'label' => 'Tgl. Order',
         'type' => 'date'
     ],
-    'order_type_id' => [
+    'order_type' => [
         'label' => 'Jenis Order',
-        'type' => 'options-obj:mst_order_types,id,name'
+        'type' => 'text'
     ],
-    'customer_id' => [
+    'customer' => [
         'label' => 'Customer',
-        'type' => 'options-obj:mst_customers,id,name'
+        'type' => 'text'
     ],
-    'employee_id' => [
+    'employee' => [
         'label' => 'Karyawan',
-        'type' => 'options-obj:mst_employees,id,name'
+        'type' => 'text'
     ],
     'size' => [
         'label' => 'Size',
@@ -124,11 +124,17 @@ $query = "SELECT
             B.order_amount,
             B.name item_name,
             D.name `size`,
-            C.name category
+            C.name category,
+            E.name employee,
+            F.name customer,
+            G.name order_type
         FROM $tableName 
         INNER JOIN trn_order_items B On B.order_id = $tableName.id 
         INNER JOIN mst_categories C On C.id = B.category_id 
         INNER JOIN mst_sizes D On D.id = B.size_id 
+        INNER JOIN mst_employees E On E.id = $tableName.employee_id 
+        INNER JOIN mst_customers F On F.id = $tableName.customer_id 
+        INNER JOIN mst_order_types G On G.id = $tableName.order_type_id 
         $where";
 
 $db->query = "$query $order_clause LIMIT $start,$length";

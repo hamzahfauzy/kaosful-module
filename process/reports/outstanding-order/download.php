@@ -18,17 +18,17 @@ $fields     = [
         'label' => 'Tgl. Order',
         'type' => 'date'
     ],
-    'order_type_id' => [
+    'order_type' => [
         'label' => 'Jenis Order',
-        'type' => 'options-obj:mst_order_types,id,name'
+        'type' => 'text'
     ],
-    'customer_id' => [
+    'customer' => [
         'label' => 'Customer',
-        'type' => 'options-obj:mst_customers,id,name'
+        'type' => 'text'
     ],
-    'employee_id' => [
+    'employee' => [
         'label' => 'Karyawan',
-        'type' => 'options-obj:mst_employees,id,name'
+        'type' => 'text'
     ],
     'category' => [
         'label' => 'Kategori',
@@ -115,10 +115,16 @@ $query = "SELECT
             CONCAT(B.qty,' ',B.unit) total_items,
             B.order_amount,
             C.name category,
-            (Case When $tableName.order_close_date Is Null Then 'OPEN' Else 'CLOSE' End) status_order
+            (Case When $tableName.order_close_date Is Null Then 'OPEN' Else 'CLOSE' End) status_order,
+            E.name employee,
+            F.name customer,
+            G.name order_type
         FROM $tableName 
         Left Join trn_order_items B On B.order_id = $tableName.id 
         Left Join mst_categories C On C.id = B.category_id 
+        Left Join mst_employees E On E.id = $tableName.employee_id 
+        Left Join mst_customers F On F.id = $tableName.customer_id 
+        Left Join mst_order_types G On G.id = $tableName.order_type_id 
         $where";
 
 $db->query = "$query $order_clause LIMIT $start,$length";
