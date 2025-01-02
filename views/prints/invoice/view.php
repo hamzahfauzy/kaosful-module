@@ -28,7 +28,7 @@
     <?php $total = 0; foreach($order->items as $index => $item): $total += $item->order_amount; ?>
     <tr>
         <td style="padding:5"><?=$item->qty?> <?=$item->unit?></td>
-        <td style="padding:5"><?=$item->name?></td>
+        <td style="padding:5"><?=wordwrap($item->name, 20, '<br />', true);?></td>
         <td style="padding:5">Rp. <?=number_format($item->price)?></td>
         <td style="padding:5">Rp. <?=number_format($item->order_amount)?></td>
     </tr>
