@@ -60,6 +60,9 @@
             Hormat Kami,
             <br><br><br><br><br><br>
         </td>
+        <td rowspan="2">
+            <b>PERHATIAN !!! Barang yang sudah dibeli Tidak dapat ditukar dan dikembalikan</b>
+        </td>
     </tr>
     <tr>
         <td><?= $order->customer->name?></td>

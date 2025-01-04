@@ -12,7 +12,10 @@ $module = 'kaosful';
 $fields     = [
     'order_number' => [
         'label' => 'No. Order',
-        'type' => 'text'
+        'type' => 'text',
+        'attr' => [
+            'readonly' => 'readonly'
+        ]
     ],
     'order_type_id' => [
         'label' => 'Jenis Order',

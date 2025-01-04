@@ -23,7 +23,7 @@ if(in_array($route,['kaosful/orders/new','kaosful/jobs/order-status']))
     '. ($route == 'kaosful/orders/new' ? '<a class="dropdown-item" href="'.routeTo('kaosful/orders/new/edit', ['id' => $data->id]).'"><i class="fa-solid fa-pencil"></i> Edit</a>' : '') .'
     <a class="dropdown-item" href="'.routeTo('kaosful/orders/new/approve', ['id' => $data->id]).'" onclick="if(confirm(\'Apakah anda yakin akan mengapprove data ini ?\')){return true}else{return false}"><i class="fa-solid fa-square-check"></i> Approve</a>
     '.(is_allowed(parsePath(routeTo('kaosful/orders/new/cancel')), auth()->id) ? '<a class="dropdown-item" href="'.routeTo('kaosful/orders/new/cancel', ['id' => $data->id]).'" onclick="if(confirm(\'Apakah anda yakin akan mengcancel data ini ?\')){return true}else{return false}"><i class="fa-solid fa-ban"></i> Cancel</a>' : '') : '') .'
-    '.(($isApproved || $isCancel) && $route == 'kaosful/orders/new' ? '
+    '.(($isApproved) && $route == 'kaosful/orders/new' ? '
     <a class="dropdown-item" href="'.routeTo('kaosful/prints/order/view', ['order_number' => $data->order_number]).'" target="_blank"><i class="fa-solid fa-print"></i> Order</a>
     <a class="dropdown-item" href="'.routeTo('kaosful/prints/invoice/view', ['order_number' => $data->order_number]).'"><i class="fa-solid fa-print"></i> Invoice</a>
     ' : '') . '

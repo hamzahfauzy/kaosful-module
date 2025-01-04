@@ -67,7 +67,7 @@ $('.add-item-button').click(function(){
                 </td>
                 <td>${data.name}</td>
                 <td>Rp. ${format_number(data.price)}</td>
-                <td><input type="number" class="form-control qty-input" style="width:100px" name="items[${items.length}][qty]" value="${data.qty}" data-key="${items.length+1}"></td>
+                <td><input type="number" class="form-control qty-input" min="${selectedItem.product.dataset.min}" max="${selectedItem.product.dataset.max}" style="width:100px" name="items[${items.length}][qty]" value="${data.qty}" data-key="${items.length+1}"></td>
                 <td>${data.unit}</td>
                 <td id="total_price_${items.length+1}">Rp. ${format_number(data.total_price)}</td>
                 <td><button class="btn btn-sm btn-danger remove-item-button" type="button" data-target="#item_${items.length+1}" data-key="${items.length+1}"><i class="fas fa-trash"></i></button></td>
@@ -131,7 +131,7 @@ $('select[name=category]').on('select2:selecting', function(e) {
         $('select[name=variant_5]').html('<option value="" data-price="0">- Pilih -</option>')
         
         res.data.products.forEach(data => {
-            var newOption = `<option value="${data.id}" data-price="${data.price}" data-unit="${data.unit}">${data.name}</option>`
+            var newOption = `<option value="${data.id}" data-price="${data.price}" data-min="${data.min_order}" data-max="${data.max_order}" data-unit="${data.unit}">${data.name}</option>`
             $('select[name=product]').append(newOption)
         })
         res.data.patterns.forEach(data => {

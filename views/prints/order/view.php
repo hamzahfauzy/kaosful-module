@@ -82,7 +82,7 @@
         <td><?=$index+1?></td>
         <td><?=$item->size->name?></td>
         <td><?=$item->category->name?></td>
-        <td><?=$item->name?></td>
+        <td><?=wordwrap($item->name, 40, '<br />', true);?></td>
         <td><?=$item->qty?> <?=$item->unit?></td>
     </tr>
     <?php endforeach ?>

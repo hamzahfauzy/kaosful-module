@@ -7,7 +7,7 @@ $attr  = ['class'=>"form-control"];
     <div class="card-header d-flex flex-grow-1 align-items-center">
         <p class="h4 m-0"><?php get_title() ?></p>
         <div class="right-button ms-auto">
-            <a href="<?= routeTo('kaosful/orders/new') ?>" class="btn btn-warning btn-sm">
+            <a href="<?= routeTo('kaosful/orders/administration') ?>" class="btn btn-warning btn-sm">
                 <?= __('crud.label.back') ?>
             </a>
         </div>

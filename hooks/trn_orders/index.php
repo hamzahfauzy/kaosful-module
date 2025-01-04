@@ -6,6 +6,13 @@ $route = Request::getRoute();
 
 $having = "";
 
+if('kaosful/orders/administration' == $route)
+{
+    $filter['trn_orders.status'] = 'APPROVE';
+    $order[0]['dir'] = $col_order == 'id' ? 'DESC' : $order[0]['dir'];
+    $col_order = $col_order == 'id' ? 'trn_orders.order_date' : $col_order; 
+}
+
 if($filter)
 {
     $filter_query = [];
@@ -29,9 +36,11 @@ if(in_array($route, ['kaosful/orders/new','kaosful/orders/administration','kaosf
                                 CONCAT(trn_orders.order_date, ' <br> ', trn_orders.order_done_date) as tgl_order, 
                                 CONCAT(trn_orders.total_items, ' Items / ', trn_orders.total_qty, ' Qty ', '<br> Rp. ', FORMAT(total_value, 0)) as total_item,
                                 CONCAT(mst_customers.id, ' - ', mst_customers.name,' <br>', mst_order_types.name) as customer
-                        FROM $this->table $where 
+                        FROM $this->table 
                         LEFT JOIN mst_order_types ON mst_order_types.id = trn_orders.order_type_id
                         LEFT JOIN mst_customers ON mst_customers.id = trn_orders.customer_id
+                        $where
+                        ORDER BY ".$col_order." ".$order[0]['dir']."
                         LIMIT $start,$length";
                         
     $data  = $this->db->exec('all');
