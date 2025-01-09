@@ -61,7 +61,7 @@
             <br><br><br><br><br><br>
         </td>
         <td rowspan="2">
-            <b>PERHATIAN !!! Barang yang sudah dibeli Tidak dapat ditukar dan dikembalikan</b>
+            <b><?=wordwrap("PERHATIAN !!! Barang yang sudah dibeli Tidak dapat ditukar dan dikembalikan",30,"<br>")?></b>
         </td>
     </tr>
     <tr>
