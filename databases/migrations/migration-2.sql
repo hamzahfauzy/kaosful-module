@@ -1,6 +1,6 @@
 CREATE TABLE trn_orders (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    order_number VARCHAR(100) NOT NULL,
+    order_number VARCHAR(255) NOT NULL,
     order_date DATE DEFAULT NULL,
     order_done_date DATE DEFAULT NULL,
     order_close_date DATE DEFAULT NULL,
@@ -14,9 +14,9 @@ CREATE TABLE trn_orders (
     total_value DOUBLE(15,2) DEFAULT NULL,
     total_payment DOUBLE(15,2) DEFAULT NULL,
     description TEXT DEFAULT NULL,
-    status VARCHAR(100) NOT NULL DEFAULT 'NEW',
-    pic_1 VARCHAR(100) DEFAULT NULL,
-    pic_2 VARCHAR(100) DEFAULT NULL,
+    status VARCHAR(255) NOT NULL DEFAULT 'NEW',
+    pic_1 VARCHAR(255) DEFAULT NULL,
+    pic_2 VARCHAR(255) DEFAULT NULL,
 
 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -46,12 +46,12 @@ CREATE TABLE trn_order_items (
     variant_4_id INT DEFAULT NULL,
     variant_5_id INT DEFAULT NULL,
 
-    name VARCHAR(100) NOT NULL,
+    name VARCHAR(255) NOT NULL,
     price DOUBLE(15,2) DEFAULT NULL,
     qty INT DEFAULT NULL,
     qty_done INT DEFAULT NULL,
     time_done DATETIME DEFAULT NULL,
-    unit VARCHAR(100) DEFAULT NULL,
+    unit VARCHAR(255) DEFAULT NULL,
     order_amount DOUBLE(15,2) DEFAULT NULL,
 
     CONSTRAINT fk_trn_order_items_order_id FOREIGN KEY (order_id) REFERENCES trn_orders(id) ON DELETE SET NULL,
@@ -76,8 +76,8 @@ CREATE TABLE trn_order_names (
     size_id INT DEFAULT NULL,
 
     order_number INT DEFAULT NULL,
-    name VARCHAR(100) DEFAULT NULL,
-    number_description VARCHAR(100) DEFAULT NULL,
+    name VARCHAR(255) DEFAULT NULL,
+    number_description VARCHAR(255) DEFAULT NULL,
     description TEXT DEFAULT NULL,
 
     CONSTRAINT fk_trn_order_names_order_id FOREIGN KEY (order_id) REFERENCES trn_orders(id) ON DELETE SET NULL,
@@ -91,13 +91,13 @@ CREATE TABLE trn_payments (
     id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT DEFAULT NULL,
     bank_id INT DEFAULT NULL,
-    code VARCHAR(100) DEFAULT NULL,
+    code VARCHAR(255) DEFAULT NULL,
     payment_date DATE DEFAULT NULL,
-    payment_type VARCHAR(100) DEFAULT NULL,
-    payment_method VARCHAR(100) DEFAULT NULL,
+    payment_type VARCHAR(255) DEFAULT NULL,
+    payment_method VARCHAR(255) DEFAULT NULL,
     order_object JSON DEFAULT NULL,
     total DOUBLE(15,2) DEFAULT NULL,
-    status VARCHAR(100) DEFAULT 'NEW',
+    status VARCHAR(255) DEFAULT 'NEW',
     description TEXT DEFAULT NULL,
 
     CONSTRAINT fk_trn_payments_order_id FOREIGN KEY (order_id) REFERENCES trn_orders(id) ON DELETE SET NULL,

@@ -67,7 +67,7 @@ $('.add-item-button').click(function(){
                 </td>
                 <td>${data.name}</td>
                 <td>Rp. ${format_number(data.price)}</td>
-                <td><input type="number" class="form-control qty-input" min="${selectedItem.product.dataset.min}" max="${selectedItem.product.dataset.max}" style="width:100px" name="items[${items.length}][qty]" value="${data.qty}" data-key="${items.length+1}"></td>
+                <td><input type="number" class="form-control qty-input" style="width:100px" name="items[${items.length}][qty]" value="${data.qty}" data-key="${items.length+1}"></td>
                 <td>${data.unit}</td>
                 <td id="total_price_${items.length+1}">Rp. ${format_number(data.total_price)}</td>
                 <td><button class="btn btn-sm btn-danger remove-item-button" type="button" data-target="#item_${items.length+1}" data-key="${items.length+1}"><i class="fas fa-trash"></i></button></td>
@@ -191,14 +191,16 @@ function format_number(value)
 function calculateTotalOrder()
 {
     var totalOrder = 0
+    var totalQty = 0
     items.forEach(item => {
         totalOrder += item.total_price
+        totalQty += item.qty
     })
 
     $('input[name="trn_orders[total_value]"]').val(format_number(totalOrder))
 
     if($('input[name="trn_orders[total_qty]"]'))
     {
-        $('input[name="trn_orders[total_qty]"]').val(items.length)
+        $('input[name="trn_orders[total_qty]"]').val(totalQty)
     }
 }
