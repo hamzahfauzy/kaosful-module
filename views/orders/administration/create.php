@@ -58,7 +58,7 @@ $attr  = ['class'=>"form-control"];
                             <input type="file" class="form-control" name="pic_1">
 
                             <?php if($data->pic_1): ?>
-                                <a href="<?=asset($data->pic_1)?>" class="btn btn-sm btn-default" target="_blank">Preview</a>
+                                <a href="<?=asset($data->pic_1)?>" class="btn btn-sm btn-secondary mt-2" target="_blank">Preview</a>
                             <?php endif ?>
                         </div>
                     </div>
@@ -100,7 +100,7 @@ $attr  = ['class'=>"form-control"];
                             <input type="file" class="form-control" name="pic_2">
 
                             <?php if($data->pic_2): ?>
-                                <a href="<?=asset($data->pic_2)?>" class="btn btn-sm btn-default" target="_blank">Preview</a>
+                                <a href="<?=asset($data->pic_2)?>" class="btn btn-sm btn-secondary mt-2" target="_blank">Preview</a>
                             <?php endif ?>
                         </div>
                     </div>
