@@ -11,7 +11,7 @@ $isApproved = $data->status == 'APPROVE';
 $isCancel = $data->status == 'CANCEL';
 $isNew = $data->status == 'NEW';
 
-if(in_array($route,['kaosful/orders/new','kaosful/jobs/order-status']))
+if($route == 'kaosful/orders/new')
 {
     $button = '<div class="dropdown">
   <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -30,6 +30,20 @@ if(in_array($route,['kaosful/orders/new','kaosful/jobs/order-status']))
     '.($isNew ? '
     '. ($route == 'kaosful/orders/new' ? '<a class="dropdown-item text-danger" onclick="if(confirm(\'Apakah anda yakin akan menghapus data ini ?\')){return true}else{return false}" href="'.routeTo('crud/delete', ['table' => 'trn_orders','id' => $data->id]).'"><i class="fa-solid fa-trash"></i> Delete</a>' : '') .'
     ': '').'
+  </div>
+</div>';
+}
+
+if($route == 'kaosful/jobs/order-status')
+{
+    $button = '<div class="dropdown">
+  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Aksi
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="'.routeTo('kaosful/orders/new/new', ['id' => $data->id]).'" onclick="if(confirm(\'Apakah anda yakin akan renew data ini ?\')){return true}else{return false}"><i class="fa-solid fa-square-check"></i> New</a>
+    <a class="dropdown-item" href="'.routeTo('kaosful/orders/new/approve', ['id' => $data->id]).'" onclick="if(confirm(\'Apakah anda yakin akan mengapprove data ini ?\')){return true}else{return false}"><i class="fa-solid fa-square-check"></i> Approve</a>
+    <a class="dropdown-item" href="'.routeTo('kaosful/orders/new/cancel', ['id' => $data->id]).'" onclick="if(confirm(\'Apakah anda yakin akan mengcancel data ini ?\')){return true}else{return false}"><i class="fa-solid fa-ban"></i> Cancel</a>
   </div>
 </div>';
 }
@@ -65,7 +79,7 @@ if($route == 'kaosful/jobs/close')
   }
   else
   {
-    $button = 'IN PROGRESS';
+    $button = 'IN PROGRESS<br><a href="'.routeTo('kaosful/orders/new/close',['id' => $data->id]).'" onclick="if(confirm(\'Apakah anda yakin akan close order ini ?\')){return true}else{return false}" class="btn btn-success btn-sm">Close</a>';
   }
 }
 
