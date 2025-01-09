@@ -56,7 +56,7 @@
 <hr>
 <table width="100%">
     <tr>
-        <td style="font-weight: bold;" width="<?= 700 - (75-(count($sizes)+1))?>">Total / Ukuran</td>
+        <td style="font-weight: bold;" width="<?= 700 - (75+(50*(count($sizes)+1)))?>">Total / Ukuran</td>
         <?php foreach($sizes as $size): ?>
         <td style="font-weight: bold;text-align: center;" width="50">- <?=$size->name?> -</td>
         <?php endforeach ?>
