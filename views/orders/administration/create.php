@@ -2,7 +2,7 @@
 get_header() ;
 $attr  = ['class'=>"form-control"];
 ?>
-<style>.select2 {width:100% !important; min-width: 350px;}</style>
+<style>.select2 {width: 350px;}</style>
 <div class="card">
     <div class="card-header d-flex flex-grow-1 align-items-center">
         <p class="h4 m-0"><?php get_title() ?></p>
@@ -56,6 +56,10 @@ $attr  = ['class'=>"form-control"];
                         <label class="mb-2 col-4">Foto Depan</label>
                         <div class="col-8">
                             <input type="file" class="form-control" name="pic_1">
+
+                            <?php if($data->pic_1): ?>
+                                <a href="<?=asset($data->pic_1)?>" class="btn btn-sm btn-default" target="_blank">Preview</a>
+                            <?php endif ?>
                         </div>
                     </div>
                 </div>
@@ -94,6 +98,10 @@ $attr  = ['class'=>"form-control"];
                         <label class="mb-2 col-4">Foto Belakang</label>
                         <div class="col-8">
                             <input type="file" class="form-control" name="pic_2">
+
+                            <?php if($data->pic_2): ?>
+                                <a href="<?=asset($data->pic_2)?>" class="btn btn-sm btn-default" target="_blank">Preview</a>
+                            <?php endif ?>
                         </div>
                     </div>
                 </div>
@@ -151,61 +159,4 @@ $attr  = ['class'=>"form-control"];
     </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="itemModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="itemModalLabel">Form Item</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group mb-3">
-            <label class="mb-2 w-100">Kategori</label>
-            <?= \Core\Form::input('options-obj:mst_categories,id,name', 'category', array_merge($attr, ['class' => 'form-control select2insidemodal', 'placeholder' => 'Pilih Kategori'])) ?>
-        </div>
-        <div class="form-group mb-3">
-            <label class="mb-2 w-100">Size</label>
-            <?= \Core\Form::input('options-obj:mst_sizes,id,name', 'size', array_merge($attr, ['class' => 'form-control select2insidemodal', 'placeholder' => 'Pilih Size'])) ?>
-        </div>
-        <div class="form-group mb-3">
-            <label class="mb-2 w-100">Produk</label>
-            <select name="product" id="product-select" class="form-control select2insidemodal"></select>
-        </div>
-        <div class="form-group mb-3">
-            <label class="mb-2 w-100">Pola</label>
-            <select name="pattern" id="pattern-select" class="form-control select2insidemodal"></select>
-        </div>
-        <div class="form-group mb-3">
-            <label class="mb-2 w-100">Kerah</label>
-            <select name="collar" id="collar-select" class="form-control select2insidemodal"></select>
-        </div>
-        <div class="form-group mb-3">
-            <label class="mb-2 w-100">Variasi 1</label>
-            <select name="variant" id="variant-select" class="form-control select2insidemodal"></select>
-        </div>
-        <div class="form-group mb-3">
-            <label class="mb-2 w-100">Variasi 2</label>
-            <select name="variant_2" id="variant_2-select" class="form-control select2insidemodal"></select>
-        </div>
-        <div class="form-group mb-3">
-            <label class="mb-2 w-100">Variasi 3</label>
-            <select name="variant_3" id="variant_3-select" class="form-control select2insidemodal"></select>
-        </div>
-        <div class="form-group mb-3">
-            <label class="mb-2 w-100">Variasi 4</label>
-            <select name="variant_4" id="variant_4-select" class="form-control select2insidemodal"></select>
-        </div>
-        <div class="form-group mb-3">
-            <label class="mb-2 w-100">Variasi 5</label>
-            <select name="variant_5" id="variant_5-select" class="form-control select2insidemodal"></select>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary add-item-button">Tambahkan</button>
-      </div>
-    </div>
-  </div>
-</div>
 <?php get_footer() ?>
