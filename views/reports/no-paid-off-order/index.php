@@ -6,6 +6,9 @@ table td img {
 table.table td, table.table th {
     white-space:nowrap;
 }
+tr td:nth-child(8), tr td:nth-child(9) {
+    text-align: right;
+}
 </style>
 <div class="card mb-3">
     <div class="card-header d-flex flex-grow-1 align-items-center">
@@ -24,16 +27,12 @@ table.table td, table.table th {
                 <?= \Core\Form::input('options-obj:mst_order_types,id,name', 'order_type', ['class' => 'form-control w-100']) ?>
             </div>
             <div class="form-group mb-1">
-                <label for="">Kustomer</label><br>
+                <label for="">Customer</label><br>
                 <?= \Core\Form::input('options-obj:mst_customers,id,name', 'customer', ['class' => 'form-control w-100']) ?>
             </div>
             <div class="form-group mb-1">
                 <label for="">Karyawan</label><br>
                 <?= \Core\Form::input('options-obj:mst_employees,id,name', 'employee', ['class' => 'form-control w-100']) ?>
-            </div>
-            <div class="form-group mb-1">
-                <label for="">Kategori</label><br>
-                <?= \Core\Form::input('options-obj:mst_categories,name,name', 'category', ['class' => 'form-control w-100']) ?>
             </div>
             <div class="form-group mb-1">
                 <label for="">&nbsp;</label>

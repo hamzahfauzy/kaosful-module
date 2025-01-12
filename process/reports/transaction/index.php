@@ -37,8 +37,20 @@ $fields     = [
         'label' => 'Jumlah',
         'type' => 'text'
     ],
+    'all_items' => [
+        'label' => 'Total Item',
+        'type' => 'number'
+    ],
+    'all_qty' => [
+        'label' => 'Total Qty',
+        'type' => 'number'
+    ],
     'order_amount' => [
         'label' => 'Nilai Order',
+        'type' => 'number'
+    ],
+    'total_value' => [
+        'label' => 'Total Nilai Order',
         'type' => 'number'
     ],
     'status' => [
@@ -115,6 +127,9 @@ if(isset($_GET['draw']))
     $query = "SELECT 
                 $tableName.*, 
                 CONCAT(B.qty,' ',B.unit) total_items,
+                $tableName.total_items all_items,
+                $tableName.total_qty all_qty,
+                $tableName.total_value,
                 B.order_amount,
                 C.name category
             FROM $tableName 

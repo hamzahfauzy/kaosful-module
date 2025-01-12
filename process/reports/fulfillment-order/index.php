@@ -107,7 +107,7 @@ if(isset($_GET['draw']))
         $filter_query = [];
         foreach($filter as $f_key => $f_value)
         {
-            if($f_key == 'status' && $f_value == '- Pilih -') continue;
+            if($f_key == 'fulfillment_status' && $f_value == '- Pilih -') continue;
             $filter_query[] = "$f_key = '$f_value'";
         }
 

@@ -107,18 +107,8 @@ $order_clause = "ORDER BY ".$col_order." ".$order[0]['dir'];
 
 $query = "SELECT 
             $tableName.*, 
-            CONCAT(B.qty,' ',B.unit) total_items,
-            B.order_amount,
-            C.name category,
-            E.name employee,
-            F.name customer,
-            G.name order_type
-        FROM $tableName 
-        Left Join trn_order_items B On B.order_id = $tableName.id 
-        Left Join mst_categories C On C.id = B.category_id 
-        Left Join mst_employees E On E.id = $tableName.employee_id 
-        Left Join mst_customers F On F.id = $tableName.customer_id 
-        Left Join mst_order_types G On G.id = $tableName.order_type_id 
+            ($tableName.total_value-coalesce($tableName.total_payment,0)) sisa
+        FROM $tableName
         $where";
 
 $db->query = "$query $order_clause LIMIT $start,$length";

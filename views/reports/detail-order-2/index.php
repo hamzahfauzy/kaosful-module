@@ -2,7 +2,7 @@
 get_header() ;
 $attr  = ['class'=>"form-control"];
 ?>
-<style>.select2 {width:100% !important}</style>
+<style>.select2 {width:100% !important}.text-right{text-align:right}</style>
 <div class="card">
     <div class="card-header d-flex flex-grow-1 align-items-center">
         <p class="h4 m-0"><?php get_title() ?></p>
@@ -11,7 +11,7 @@ $attr  = ['class'=>"form-control"];
         <form action="">
             <div class="form-group mb-3">
                 <label for="">No Order</label>
-                <?= \Core\Form::input('options-obj:trn_orders,order_number,order_number', 'order_number', ['class' => 'form-control select2', 'placeholder' => 'Pilih', 'value' => \Core\Request::get('order_number', '')]) ?>
+                <?= \Core\Form::input('options:'.json_encode($orderOptions), 'order_number', ['class' => 'form-control select2', 'placeholder' => 'Pilih', 'value' => \Core\Request::get('order_number', '')]) ?>
             </div>
             <div class="form-group">
                 <button class="btn btn-primary">Submit</button>
@@ -122,10 +122,10 @@ $attr  = ['class'=>"form-control"];
                 <tr>
                     <td><?=$no+1?></td>
                     <td><?=$item->name?></td>
-                    <td>Rp. <?=number_format($item->price)?></td>
-                    <td><?=number_format($item->qty)?></td>
+                    <td class="text-right">Rp. <?=number_format($item->price)?></td>
+                    <td class="text-right"><?=number_format($item->qty)?></td>
                     <td><?=$item->unit?></td>
-                    <td>Rp. <?=number_format($item->order_amount)?></td>
+                    <td class="text-right">Rp. <?=number_format($item->order_amount)?></td>
                 </tr>
                 <?php endforeach ?>
             </table>
@@ -145,7 +145,7 @@ $attr  = ['class'=>"form-control"];
                 <?php foreach($order->names as $no => $name): ?>
                 <tr>
                     <td><?=$no+1?></td>
-                    <td><?=$name->item->name?></td>
+                    <td><?=$name->item?->name?></td>
                     <td><?=$name->name?></td>
                     <td><?=$name->number_description?></td>
                     <td><?=$name->description?></td>

@@ -33,6 +33,16 @@ if(isset($_GET['order_number']) && !empty($_GET['order_number']))
     $order->payments = $db->exec('all');
 }
 
+$orders = $db->all('trn_orders', [
+    'status' => ['<>', 'CANCEL']
+]);
+
+$orderOptions = ['- Pilih -'=>0];
+foreach($orders as $_order)
+{
+    $orderOptions[$_order->order_number] = $_order->order_number;
+}
+
 // page section
 $title = 'Laporan Detail Order 2';
 Page::setActive("kaosful.reports.detail_order_2");
@@ -56,4 +66,4 @@ Page::pushHead('<style>.select2,.select2-selection{height:38px!important;} .sele
 Page::pushFoot('<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>');
 Page::pushFoot("<script>$('.select2').select2();</script>");
 
-return view('kaosful/views/reports/detail-order-2/index', compact('order'));
+return view('kaosful/views/reports/detail-order-2/index', compact('order', 'orderOptions'));

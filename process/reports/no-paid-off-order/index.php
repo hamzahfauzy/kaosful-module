@@ -29,10 +29,6 @@ $fields     = [
         'label' => 'Karyawan',
         'type' => 'options-obj:mst_employees,id,name'
     ],
-    'category' => [
-        'label' => 'Kategori',
-        'type' => 'text'
-    ],
     'total_payment' => [
         'label' => 'Nilai Bayar',
         'type' => 'number'
@@ -111,13 +107,8 @@ if(isset($_GET['draw']))
 
     $query = "SELECT 
                 $tableName.*, 
-                CONCAT(B.qty,' ',B.unit) total_items,
-                B.order_amount,
-                C.name category,
                 ($tableName.total_value-coalesce($tableName.total_payment,0)) sisa
             FROM $tableName 
-            Left Join trn_order_items B On B.order_id = $tableName.id 
-            Left Join mst_categories C On C.id = B.category_id 
             $where";
 
     $db->query = "$query $order_clause LIMIT $start,$length";

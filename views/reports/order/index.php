@@ -6,6 +6,9 @@ table td img {
 table.table td, table.table th {
     white-space:nowrap;
 }
+tr td:nth-child(10), tr td:nth-child(11) {
+    text-align: right;
+}
 </style>
 <div class="card mb-3">
     <div class="card-header d-flex flex-grow-1 align-items-center">
