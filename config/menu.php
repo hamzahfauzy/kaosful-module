@@ -152,7 +152,7 @@ return [
         'label' => 'kaosful.menu.payment_data',
         'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-cash-register',
         'activeState' => [
-            'kaosful.mst_payments'
+            'kaosful.trn_payments'
         ],
         'items' => [
             [
@@ -194,7 +194,7 @@ return [
             [
                 'label' => 'kaosful.menu.update_payment_status',
                 'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-stamp',
-                'route' => routeTo('kaosful/jobs/payment-status'),
+                'route' => routeTo('kaosful/jobs/payment-status', ['filter' => ['status' => 'APPROVE']]),
                 'activeState' => 'kaosful.jobs.payment_status'
             ],
         ]
@@ -205,13 +205,14 @@ return [
         'activeState' => [
             'kaosful.prints.order_attachment',
             'kaosful.prints.invoice',
+            'kaosful.prints.order',
         ],
         'items' => [
             [
                 'label' => 'kaosful.menu.print_order_attachment',
                 'icon'  => 'fa-fw fa-lg me-2 fa-solid fa-compress-arrows-alt',
                 'route' => routeTo('kaosful/prints/order'),
-                'activeState' => 'kaosful.prints.order_attachment'
+                'activeState' => 'kaosful.prints.order'
             ],
             [
                 'label' => 'kaosful.menu.print_invoice',

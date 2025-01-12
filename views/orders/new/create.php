@@ -16,26 +16,26 @@ $attr  = ['class'=>"form-control"];
         <?php if($error_msg): ?>
         <div class="alert alert-danger"><?=$error_msg?></div>
         <?php endif ?>
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="post" onsubmit="if(items.length == 0){ alert('Maaf! Item order belum di isi'); return false }else{ return true }" enctype="multipart/form-data">
             <?= csrf_field() ?>
             <div class="row">
                 <div class="col-12 col-md-6">
                     <div class="row mb-3">
                         <label class="mb-2 col-4">No. Order</label>
                         <div class="col-8">
-                            <?= \Core\Form::input('text', 'trn_orders[order_number]', array_merge($attr, ['placeholder' => 'No. Order'])) ?>
+                            <?= \Core\Form::input('text', 'trn_orders[order_number]', array_merge($attr, ['placeholder' => 'No. Order','required' => ''])) ?>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="mb-2 col-4">Tgl. Order</label>
                         <div class="col-8">
-                            <?= \Core\Form::input('date', 'trn_orders[order_date]', array_merge($attr, ['placeholder' => 'Tgl. Order'])) ?>
+                            <?= \Core\Form::input('date', 'trn_orders[order_date]', array_merge($attr, ['placeholder' => 'Tgl. Order','required' => ''])) ?>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="mb-2 col-4">Customer</label>
                         <div class="col-8">
-                            <?= \Core\Form::input('options-obj:mst_customers,id,name', 'trn_orders[customer_id]', array_merge($attr, ['placeholder' => 'Pilih Customer'])) ?>
+                            <?= \Core\Form::input('options-obj:mst_customers,id,name', 'trn_orders[customer_id]', array_merge($attr, ['placeholder' => 'Pilih Customer','required' => ''])) ?>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -49,19 +49,19 @@ $attr  = ['class'=>"form-control"];
                     <div class="row mb-3">
                         <label class="mb-2 col-4">Jenis Order</label>
                         <div class="col-8">
-                            <?= \Core\Form::input('options-obj:mst_order_types,id,name', 'trn_orders[order_type_id]', array_merge($attr, ['placeholder' => 'Jenis Order'])) ?>
+                            <?= \Core\Form::input('options-obj:mst_order_types,id,name', 'trn_orders[order_type_id]', array_merge($attr, ['placeholder' => 'Jenis Order','required' => ''])) ?>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="mb-2 col-4">Tgl. Est Selesai</label>
                         <div class="col-8">
-                            <?= \Core\Form::input('date', 'trn_orders[order_done_date]', array_merge($attr, ['placeholder' => 'Tgl. Est Selesai'])) ?>
+                            <?= \Core\Form::input('date', 'trn_orders[order_done_date]', array_merge($attr, ['placeholder' => 'Tgl. Est Selesai','required' => ''])) ?>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="mb-2 col-4">Karyawan</label>
                         <div class="col-8">
-                            <?= \Core\Form::input('options-obj:mst_employees,id,name', 'trn_orders[employee_id]', array_merge($attr, ['placeholder' => 'Pilih Customer'])) ?>
+                            <?= \Core\Form::input('options-obj:mst_employees,id,name', 'trn_orders[employee_id]', array_merge($attr, ['placeholder' => 'Pilih Customer','required' => ''])) ?>
                         </div>
                     </div>
                     <div class="row mb-3">

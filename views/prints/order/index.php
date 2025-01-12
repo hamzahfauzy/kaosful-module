@@ -22,13 +22,13 @@ $attr  = ['class'=>"form-control"];
 function printOrder()
 {
     const order_number = $('select[name=item]').find(':selected')[0].text
-    window.location.href = '<?=routeTo('kaosful/prints/order/view', ['order_number' => 'varOrderNumber1'])?>'.replace('varOrderNumber1', order_number)
+    window.open('<?=routeTo('kaosful/prints/order/view', ['order_number' => 'varOrderNumber1'])?>'.replace('varOrderNumber1', order_number), '_blank')
 }
 
 function printLampiran()
 {
     const order_number = $('select[name=item]').find(':selected')[0].text
-    window.location.href = '<?=routeTo('kaosful/prints/order/attachment', ['order_number' => 'varOrderNumber1'])?>'.replace('varOrderNumber1', order_number)
+    window.open('<?=routeTo('kaosful/prints/order/attachment', ['order_number' => 'varOrderNumber1'])?>'.replace('varOrderNumber1', order_number), '_blank')
 }
 </script>
 <?php get_footer() ?>

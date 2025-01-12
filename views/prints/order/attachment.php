@@ -1,14 +1,11 @@
 <table width="100%">
     <tr>
-        <td width="350">
-            Gambar Desain
-        </td>
-        <td width="350" style="text-align: right;">
-            LAMPIRAN
+        <td width="700">
+            <b>Gambar Desain</b>
         </td>
     </tr>
     <tr>
-        <td colspan="2">
+        <td>
             <?php if($order->pic_1): ?>
             <img src="<?=imageToBase64(asset(str_replace(' ','%20',$order->pic_1)))?>" alt="" width="150px" height="200px" style="object-fit:contain">
             <?php endif ?>
@@ -23,15 +20,15 @@
 <table width="100%">
     <tr>
         <td style="font-weight: bold;" width="50">No</td>
-        <td style="font-weight: bold;" width="350">Item</td>
-        <td style="font-weight: bold;" width="200">Nama</td>
+        <td style="font-weight: bold;" width="400">Item</td>
+        <td style="font-weight: bold;" width="100">Nama</td>
         <td style="font-weight: bold;" width="50">Nomor</td>
         <td style="font-weight: bold;" width="50">Catatan</td>
     </tr>
     <?php foreach($order->items as $index => $item): ?>
     <tr>
         <td><?=$index+1?></td>
-        <td><?=$item->item->name?></td>
+        <td><?=wordwrap($item->item?->name, 50, '<br>')?></td>
         <td><?=$item->name?></td>
         <td><?=$item->number_description?></td>
         <td><?=$item->description?></td>

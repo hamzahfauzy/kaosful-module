@@ -1,6 +1,7 @@
 <?php
 
 use Core\Database;
+use Core\Request;
 
 $db = new Database;
 $db->update('trn_payments',[
@@ -25,5 +26,5 @@ $db->update('trn_orders',[
 
 set_flash_msg(['success'=>"Data berhasil di renew"]);
 
-header('location:'.routeTo('kaosful/jobs/payment-status'));
+header('location:'.routeTo(Request::getPrevRoute(), ['filter' => ['status' => 'APPROVE']]));
 die();

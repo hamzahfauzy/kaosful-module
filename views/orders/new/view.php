@@ -87,7 +87,7 @@ $attr  = ['class'=>"form-control"];
         </div>
         <div class="form-group mb-3">
             <?php if($data->status == 'NEW'): ?>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="" onsubmit="if(items.length == 0){ alert('Maaf! Item order belum di isi'); return false }else{ return true }" method="post" enctype="multipart/form-data">
             <?= csrf_field() ?>
             <?php endif ?>
             <table class="table table-bordered table-item">

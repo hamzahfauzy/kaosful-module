@@ -412,7 +412,10 @@ return array (
   'trn_payments' => [
     'code' => [
       'label' => 'No. Bayar',
-      'type' => 'text'
+      'type' => 'text',
+      'attr' => [
+        'required' => 'required'
+      ]
     ],
     'order_id' => [
       'label' => 'No. Order',
@@ -421,6 +424,9 @@ return array (
     'payment_date' => [
       'label' => 'Tgl. Bayar',
       'type' => 'date',
+      'attr' => [
+        'required' => 'required'
+      ]
     ],
     'payment_type' => [
       'label' => 'Tipe Bayar',
@@ -431,7 +437,9 @@ return array (
       'type' => 'number',
       'attr' => [
         'data-type' => 'currency',
-        'class' => 'form-control'
+        'class' => 'form-control',
+        'required' => 'required',
+        'min' => 1
       ]
     ],
     'payment_method' => [
@@ -441,6 +449,9 @@ return array (
     'bank_id' => [
       'label' => 'Bank',
       'type' => 'options-obj:mst_banks,id,name',
+      'attr' => [
+        'required' => 'required'
+      ]
     ],
     'description' => [
       'label' => 'Keterangan',

@@ -13,6 +13,7 @@ $isNew = $data->status == 'NEW';
 
 if($route == 'kaosful/orders/new')
 {
+  $isValid = $data->is_valid == 'VALID';
     $button = '<div class="dropdown">
   <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Aksi
@@ -21,11 +22,11 @@ if($route == 'kaosful/orders/new')
     <a class="dropdown-item" href="'.routeTo('kaosful/orders/new/view', ['id' => $data->id]).'"><i class="fa-solid fa-eye"></i> Detail</a>
     '.($isNew ? '
     '. ($route == 'kaosful/orders/new' ? '<a class="dropdown-item" href="'.routeTo('kaosful/orders/new/edit', ['id' => $data->id]).'"><i class="fa-solid fa-pencil"></i> Edit</a>' : '') .'
-    <a class="dropdown-item" href="'.routeTo('kaosful/orders/new/approve', ['id' => $data->id]).'" onclick="if(confirm(\'Apakah anda yakin akan mengapprove data ini ?\')){return true}else{return false}"><i class="fa-solid fa-square-check"></i> Approve</a>
+    <a class="dropdown-item '.($isValid ? 'text-success' : 'text-danger').'" href="'.($isValid ? routeTo('kaosful/orders/new/approve', ['id' => $data->id]) : 'javascript:void(0)').'" onclick="'.($isValid ? 'if(confirm(\'Apakah anda yakin akan mengapprove data ini ?\')){return true}else{return false}' : 'alert(\'Maaf! Data tidak valid\')').'"><i class="fa-solid fa-square-check"></i> Approve</a>
     '.(is_allowed(parsePath(routeTo('kaosful/orders/new/cancel')), auth()->id) ? '<a class="dropdown-item" href="'.routeTo('kaosful/orders/new/cancel', ['id' => $data->id]).'" onclick="if(confirm(\'Apakah anda yakin akan mengcancel data ini ?\')){return true}else{return false}"><i class="fa-solid fa-ban"></i> Cancel</a>' : '') : '') .'
     '.(($isApproved) && $route == 'kaosful/orders/new' ? '
     <a class="dropdown-item" href="'.routeTo('kaosful/prints/order/view', ['order_number' => $data->order_number]).'" target="_blank"><i class="fa-solid fa-print"></i> Order</a>
-    <a class="dropdown-item" href="'.routeTo('kaosful/prints/invoice/view', ['order_number' => $data->order_number]).'"><i class="fa-solid fa-print"></i> Invoice</a>
+    <a class="dropdown-item" href="'.routeTo('kaosful/prints/invoice/view', ['order_number' => $data->order_number]).'" target="_blank"><i class="fa-solid fa-print"></i> Invoice</a>
     ' : '') . '
     '.($isNew ? '
     '. ($route == 'kaosful/orders/new' ? '<a class="dropdown-item text-danger" onclick="if(confirm(\'Apakah anda yakin akan menghapus data ini ?\')){return true}else{return false}" href="'.routeTo('crud/delete', ['table' => 'trn_orders','id' => $data->id]).'"><i class="fa-solid fa-trash"></i> Delete</a>' : '') .'
@@ -65,21 +66,13 @@ if($route == 'kaosful/orders/administration')
 
 if($route == 'kaosful/jobs/close')
 {
-  $db->query = "SELECT SUM(qty_done) total_qty FROM trn_order_items WHERE order_id = $data->id";
-  $item = $db->exec('single');
+  // $db->query = "SELECT SUM(qty_done) total_qty FROM trn_order_items WHERE order_id = $data->id";
+  // $item = $db->exec('single');
 
-  if(empty($data->order_close_date) && $data->total_qty == $item->total_qty && $data->total_payment >= $data->total_value)
+  if(empty($data->order_close_date) && $data->complete_status == 'COMPLETED')
   {
     // show close order
-    $button = 'OPEN<br><a href="'.routeTo('kaosful/orders/new/close',['id' => $data->id]).'" onclick="if(confirm(\'Apakah anda yakin akan close order ini ?\')){return true}else{return false}" class="btn btn-success btn-sm">Close</a>';
-  }
-  else if(!empty($data->order_close_date) && $data->total_qty == $item->total_qty && $data->total_payment >= $data->total_value)
-  {
-    $button = 'CLOSE';
-  }
-  else
-  {
-    $button = 'IN PROGRESS<br><a href="'.routeTo('kaosful/orders/new/close',['id' => $data->id]).'" onclick="if(confirm(\'Apakah anda yakin akan close order ini ?\')){return true}else{return false}" class="btn btn-success btn-sm">Close</a>';
+    $button = '<a href="'.routeTo('kaosful/orders/new/close',['id' => $data->id]).'" onclick="if(confirm(\'Apakah anda yakin akan close order ini ?\')){return true}else{return false}" class="btn btn-success btn-sm">Close</a>';
   }
 }
 

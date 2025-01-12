@@ -26,7 +26,7 @@ $items = $db->all('trn_order_items', [
 $order->items = $items;
 
 try {
-    $html2pdf = new Html2Pdf('P', 'A4', 'fr', true, 'UTF-8');
+    $html2pdf = new Html2Pdf('L', array(205, 135), 'en', true, 'UTF-8');
     $html2pdf->pdf->SetDisplayMode('fullpage');
     
     $content = view('kaosful/views/prints/invoice/view', compact('order'));

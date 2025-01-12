@@ -8,7 +8,7 @@ $tableName = 'trn_orders';
 $module = 'kaosful';
 
 // page section
-$title = 'Cetak Order Detail';
+$title = 'Cetak Order & Lampiran';
 Page::setActive("kaosful.prints.order");
 Page::setTitle($title);
 Page::setModuleName($title);

@@ -38,8 +38,14 @@
                     }
                 }
                 $label = _ucwords($label);
+                if($field != 'description')
+                {
+                    $attr['required'] = 'required';
+                }
+
                 $fieldname = $type == 'file' ? $field : $tableName."[".$field."]";
                 $attr = array_merge($attr, ["placeholder"=>$label,"value"=>$old[$field]??($data->{$field} ?? '')]);
+
                 if(isset($attr['multiple']))
                 {
                     $fieldname .= "[]";

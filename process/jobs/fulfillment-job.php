@@ -41,7 +41,7 @@ if(Request::isMethod('POST'))
         ]);
 
         $time_done = $item->time_done ?? date('Y-m-d H:i:s');
-        $time_done = $qty == 0 ? NULL : $time_done;
+        $time_done = $qty == 0 ? 'NULL' : $time_done;
         
         $db->update('trn_order_items',[
             'qty_done' => $qty,
@@ -49,6 +49,18 @@ if(Request::isMethod('POST'))
         ], [
             'id' => $id,
         ]);
+    }
+
+    $checker = $db->exists('trn_order_items', [
+        'time_done' => ['IS', 'NULL']
+    ], [
+        'order_id' => $_GET['id']
+    ]);
+
+    if(!$checker)
+    {
+        $db->query = "UPDATE trn_order_items SET qty_done = qty, time_done = NOW() WHERE order_id = $_GET[id]";
+        $db->exec();
     }
 
     set_flash_msg(['success'=>"Data berhasil diupdate"]);

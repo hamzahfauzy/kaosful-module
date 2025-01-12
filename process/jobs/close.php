@@ -33,9 +33,9 @@ $fields     = [
         'label' => 'Total Items / Qty',
         'type' => 'text'
     ],
-    'status' => [
+    'order_status' => [
         'label' => 'Status',
-        'type' => 'options:NEW|APPROVE|CANCEL'
+        'type' => 'text'
     ]
 ];
 $module = 'kaosful';
