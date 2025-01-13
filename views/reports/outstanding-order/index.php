@@ -31,7 +31,7 @@ tr td:nth-child(8), tr td:nth-child(9) {
                 <?= \Core\Form::input('options-obj:mst_order_types,id,name', 'order_type', ['class' => 'form-control w-100']) ?>
             </div>
             <div class="form-group mb-1">
-                <label for="">Tipe</label><br>
+                <label for="">Customer</label><br>
                 <?= \Core\Form::input('options-obj:mst_customers,id,name', 'customer', ['class' => 'form-control w-100']) ?>
             </div>
             <div class="form-group mb-1">

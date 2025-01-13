@@ -585,7 +585,7 @@ function downloadReportPayment()
     
     if(bank)
     {
-        data.filter.bank = bank
+        data.filter.bank_id = bank
     }
     
     if(status)
