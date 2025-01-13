@@ -26,5 +26,5 @@ $db->update('trn_orders',[
 
 set_flash_msg(['success'=>"Data berhasil diapprove"]);
 
-header('location:'.routeTo(Request::getPrevRoute(), ['filter' => ['status' => 'APPROVE']]));
+header('location:'.routeTo('crud/index', ['table' => 'trn_payments']));
 die();

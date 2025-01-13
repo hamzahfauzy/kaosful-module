@@ -13,7 +13,7 @@ if('kaosful/orders/administration' == $route)
     $col_order = $col_order == 'id' ? 'trn_orders.order_date' : $col_order; 
 }
 
-if($route == 'kaosful/jobs/close')
+if(in_array($route, ['kaosful/jobs/close','kaosful/jobs/fulfillment']))
 {
     $filter['status'] = 'APPROVE';
 }
