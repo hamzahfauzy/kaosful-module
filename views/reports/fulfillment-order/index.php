@@ -41,7 +41,7 @@ table.table td, table.table th {
             </div>
             <div class="form-group mb-1">
                 <label for="">Fulfillment</label><br>
-                <?= \Core\Form::input('options:- Pilih -|COMPLETE|ON PROGRESS', 'fulfillment', ['class' => 'form-control w-100']) ?>
+                <?= \Core\Form::input('options:- Pilih -|COMPLETED|ON PROGRESS', 'fulfillment', ['class' => 'form-control w-100']) ?>
             </div>
             <div class="form-group mb-1">
                 <label for="">&nbsp;</label>

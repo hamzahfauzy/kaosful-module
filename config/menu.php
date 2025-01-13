@@ -229,7 +229,7 @@ return [
             'kaosful.reports.transaction',
             'kaosful.reports.order',
             'kaosful.reports.detail_order',
-            'kaosful.reports.detail_orders_2',
+            'kaosful.reports.detail_order_2',
             'kaosful.reports.fulfillment_order',
             'kaosful.reports.outstanding_order',
             'kaosful.reports.no_paid_off_order',

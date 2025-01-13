@@ -23,19 +23,32 @@ $fields     = [
     ],
     'tgl_order' => [
         'label' => 'Tgl. Order',
-        'type' => 'text'
+        'type' => 'text',
+        'search' => [
+            'trn_orders.order_date',
+            'trn_orders.order_done_date',
+        ]
     ],
     'customer' => [
         'label' => 'Customer',
-        'type' => 'text'
+        'type' => 'text',
+        'search' => [
+            'mst_customers.name',
+            'mst_order_types.name'
+        ]
     ],
     'total_item' => [
         'label' => 'Total Items / Qty',
-        'type' => 'text'
+        'type' => 'text',
+        'search' => [
+            'trn_orders.total_items',
+            'trn_orders.total_qty'
+        ]
     ],
     'status' => [
         'label' => 'Status',
-        'type' => 'options:NEW|APPROVE|CANCEL'
+        'type' => 'text',
+        'search' => 'trn_orders.status',
     ]
 ];
 $module = 'kaosful';
