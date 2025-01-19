@@ -69,7 +69,7 @@ if($route == 'kaosful/jobs/close')
   // $db->query = "SELECT SUM(qty_done) total_qty FROM trn_order_items WHERE order_id = $data->id";
   // $item = $db->exec('single');
 
-  if(empty($data->order_close_date) && $data->complete_status == 'COMPLETED')
+  if($data->complete_status == 'COMPLETED')
   {
     // show close order
     $button = '<a href="'.routeTo('kaosful/orders/new/close',['id' => $data->id]).'" onclick="if(confirm(\'Apakah anda yakin akan close order ini ?\')){return true}else{return false}" class="btn btn-success btn-sm">Close</a>';
