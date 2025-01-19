@@ -173,7 +173,7 @@ $attr  = ['class'=>"form-control"];
                     <td><?=$payment->payment_type?></td>
                     <td><?=$payment->payment_method?></td>
                     <td><?=$payment->bank_name?></td>
-                    <td><?=$payment->total?></td>
+                    <td class="text-right">Rp. <?=number_format($payment->total)?></td>
                     <td><?=$payment->status?></td>
                 </tr>
                 <?php endforeach ?>

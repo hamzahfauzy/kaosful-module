@@ -52,14 +52,13 @@ if(Request::isMethod('POST'))
     }
 
     $checker = $db->exists('trn_order_items', [
-        'time_done' => ['IS', 'NULL']
-    ], [
+        'time_done' => ['IS', 'NULL'],
         'order_id' => $_GET['id']
     ]);
 
     if(!$checker)
     {
-        $db->query = "UPDATE trn_order_items SET qty_done = qty, time_done = NOW() WHERE order_id = $_GET[id]";
+        $db->query = "UPDATE trn_order_items SET qty_done = qty, time_done = NOW() WHERE order_id = $_GET[id] AND time_done IS NULL";
         $db->exec();
     }
 

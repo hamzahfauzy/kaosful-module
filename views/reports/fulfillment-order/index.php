@@ -28,7 +28,7 @@ table.table td, table.table th {
                 <?= \Core\Form::input('options-obj:mst_order_types,id,name', 'order_type', ['class' => 'form-control w-100']) ?>
             </div>
             <div class="form-group mb-1">
-                <label for="">Kustomer</label><br>
+                <label for="">Customer</label><br>
                 <?= \Core\Form::input('options-obj:mst_customers,id,name', 'customer', ['class' => 'form-control w-100']) ?>
             </div>
             <div class="form-group mb-1">
@@ -41,7 +41,7 @@ table.table td, table.table th {
             </div>
             <div class="form-group mb-1">
                 <label for="">Fulfillment</label><br>
-                <?= \Core\Form::input('options:- Pilih -|COMPLETE|ON PROGRESS', 'fulfillment', ['class' => 'form-control w-100']) ?>
+                <?= \Core\Form::input('options:- Pilih -|COMPLETED|ON PROGRESS', 'fulfillment', ['class' => 'form-control w-100']) ?>
             </div>
             <div class="form-group mb-1">
                 <label for="">&nbsp;</label>

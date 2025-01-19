@@ -33,20 +33,12 @@ $fields     = [
         'label' => 'Kategori',
         'type' => 'text'
     ],
-    'total_items' => [
-        'label' => 'Jumlah',
-        'type' => 'text'
-    ],
     'all_items' => [
         'label' => 'Total Item',
         'type' => 'number'
     ],
     'all_qty' => [
         'label' => 'Total Qty',
-        'type' => 'number'
-    ],
-    'order_amount' => [
-        'label' => 'Nilai Order',
         'type' => 'number'
     ],
     'total_value' => [
@@ -124,18 +116,29 @@ if(isset($_GET['draw']))
 
     $order_clause = "ORDER BY ".$col_order." ".$order[0]['dir'];
 
-    $query = "SELECT 
-                $tableName.*, 
-                CONCAT(B.qty,' ',B.unit) total_items,
-                $tableName.total_items all_items,
-                $tableName.total_qty all_qty,
-                $tableName.total_value,
-                B.order_amount,
-                C.name category
-            FROM $tableName 
-            Left Join trn_order_items B On B.order_id = $tableName.id 
-            Left Join mst_categories C On C.id = B.category_id 
-            $where";
+    $query = "Select Distinct 
+                    A.*, 
+                    A.total_items all_items,
+                    A.total_qty all_qty,
+                    A.total_value,
+                    C.name category 
+                From trn_orders A 
+	            Left Join trn_order_items B On A.id = B.order_id
+	            Left Join mst_categories C On B.category_id = C.id
+                $where";
+
+    // $query = "SELECT DISTINCT
+    //             $tableName.*, 
+    //             CONCAT(B.qty,' ',B.unit) total_items,
+    //             $tableName.total_items all_items,
+    //             $tableName.total_qty all_qty,
+    //             $tableName.total_value,
+    //             B.order_amount,
+    //             C.name category
+    //         FROM $tableName 
+    //         Left Join trn_order_items B On B.order_id = $tableName.id 
+    //         Left Join mst_categories C On C.id = B.category_id 
+    //         $where";
 
     $db->query = "$query $order_clause LIMIT $start,$length";
     $data  = $db->exec('all');
@@ -208,6 +211,6 @@ Page::pushHead('<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist
 Page::pushHead('<style>.select2,.select2-selection{height:38px!important;} .select2-container--default .select2-selection--single .select2-selection__rendered{line-height:38px!important;}.select2-selection__arrow{height:34px!important;}</style>');
 Page::pushFoot('<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>');
 Page::pushFoot("<script src='https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.0/qs.min.js'></script>");
-Page::pushFoot("<script src='".asset('assets/kaosful/js/reports.js')."'></script>");
+Page::pushFoot("<script src='".asset('assets/kaosful/js/reports.js?v=111')."'></script>");
 
 return view('kaosful/views/reports/transaction/index', compact('fields'));

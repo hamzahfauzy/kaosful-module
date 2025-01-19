@@ -193,6 +193,6 @@ Page::pushHead('<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist
 Page::pushHead('<style>.select2,.select2-selection{height:38px!important;} .select2-container--default .select2-selection--single .select2-selection__rendered{line-height:38px!important;}.select2-selection__arrow{height:34px!important;}</style>');
 Page::pushFoot('<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>');
 Page::pushFoot("<script src='https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.0/qs.min.js'></script>");
-Page::pushFoot("<script src='".asset('assets/kaosful/js/reports.js')."'></script>");
+Page::pushFoot("<script src='".asset('assets/kaosful/js/reports.js?v=123')."'></script>");
 
 return view('kaosful/views/reports/payment-order/index', compact('fields'));

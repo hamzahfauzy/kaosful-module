@@ -3,9 +3,9 @@
 use Core\Database;
 
 $db = new Database;
-$db->query = "SELECT * FROM trn_orders WHERE status = 'APPROVE' AND total_value <> total_payment";
+$db->query = "SELECT * FROM trn_orders WHERE status = 'APPROVE' AND total_value <> COALESCE(total_payment, 0)";
 $orders = $db->exec('all');
-$orderOptions = [];
+$orderOptions = ['- Pilih -' => 0];
 foreach($orders as $order)
 {
     $orderOptions[$order->order_number] = $order->id;

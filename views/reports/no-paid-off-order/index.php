@@ -6,7 +6,7 @@ table td img {
 table.table td, table.table th {
     white-space:nowrap;
 }
-tr td:nth-child(8), tr td:nth-child(9) {
+tr td:nth-child(7), tr td:nth-child(8), tr td:nth-child(9) {
     text-align: right;
 }
 </style>

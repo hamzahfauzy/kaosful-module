@@ -168,7 +168,7 @@ window.reportPayment = $('.datatable-report-payment').DataTable({
             
             if(bank)
             {
-                data.filter.bank = bank
+                data.filter.bank_id = bank
             }
             
             if(status)
@@ -460,22 +460,22 @@ function downloadReportTransaction()
     data.filter = {}
     if(order_type)
     {
-        data.filter.order_type = order_type
+        data.filter.order_type_id = order_type
     }
     
     if(customer)
     {
-        data.filter.customer = customer
+        data.filter.customer_id = customer
     }
     
     if(employee)
     {
-        data.filter.employee = employee
+        data.filter.employee_id = employee
     }
     
     if(category)
     {
-        data.filter.category = category
+        data.filter.category_id = category
     }
     
     if(status)
@@ -585,7 +585,7 @@ function downloadReportPayment()
     
     if(bank)
     {
-        data.filter.bank = bank
+        data.filter.bank_id = bank
     }
     
     if(status)

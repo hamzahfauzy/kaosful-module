@@ -5,7 +5,7 @@ use Core\Database;
 $fields['code']['attr']['readonly'] = 'readonly';
 
 $db = new Database;
-$db->query = "SELECT * FROM trn_orders WHERE status = 'APPROVE' AND total_value <> total_payment";
+$db->query = "SELECT * FROM trn_orders WHERE status = 'APPROVE' AND total_value <> COALESCE(total_payment, 0)";
 $orders = $db->exec('all');
 $orderOptions = [];
 foreach($orders as $order)

@@ -7,10 +7,10 @@
     <tr>
         <td>
             <?php if($order->pic_1): ?>
-            <img src="<?=imageToBase64(asset(str_replace(' ','%20',$order->pic_1)))?>" alt="" width="150px" height="200px" style="object-fit:contain">
+            <img src="<?=imageToBase64(asset(str_replace(' ','%20',$order->pic_1)))?>" alt="" width="150" height="200" style="object-fit:contain">
             <?php endif ?>
             <?php if($order->pic_2): ?>
-            <img src="<?=imageToBase64(asset(str_replace(' ','%20',$order->pic_2)))?>" alt="" width="150px" height="200px" style="object-fit:contain">
+            <img src="<?=imageToBase64(asset(str_replace(' ','%20',$order->pic_2)))?>" alt="" width="150" height="200" style="object-fit:contain">
             <?php endif ?>
         </td>
     </tr>

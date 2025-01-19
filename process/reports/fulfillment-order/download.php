@@ -126,14 +126,14 @@ $query = "SELECT
             CONCAT(B.qty,' ',B.unit) total_items,
             B.name item_name,
             B.order_amount,
-            CONCAT(B.qty_done,' ',B.unit) fulfillment,
-            CONCAT((B.qty-B.qty_done),' ',B.unit) sisa,
+            CONCAT(coalesce(B.qty_done,0),' ',B.unit) fulfillment,
+            CONCAT((B.qty-coalesce(B.qty_done,0)),' ',B.unit) sisa,
             C.name category,
             D.name `size`,
             E.name employee,
             F.name customer,
             G.name order_type,
-            (Case When B.time_done Is Null Then 'ON PROGRESS' Else 'COMPLETED' End) fulfillment_status
+            (Case When coalesce(B.time_done, NULL) Is Null Then 'ON PROGRESS' Else 'COMPLETED' End) fulfillment_status
         FROM $tableName 
         Left Join trn_order_items B On B.order_id = $tableName.id 
         Left Join mst_categories C On C.id = B.category_id 

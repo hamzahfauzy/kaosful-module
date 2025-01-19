@@ -126,7 +126,7 @@ $query = "SELECT
 $db->query = "$query $order_clause LIMIT $start,$length";
 $data  = $db->exec('all');
 
-$filename = "transaction-download-".date('Y-m-d H:i:s').".xlsx";
+$filename = "payment-download-".date('Y-m-d H:i:s').".xlsx";
 
 $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
