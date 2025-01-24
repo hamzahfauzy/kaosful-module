@@ -76,16 +76,18 @@ $('.add-item-button').click(function(){
     $('.table-item tbody').append(row)
     items.push(data)
 
-    $('select[name=category]').val('').trigger('change')
-    $('select[name=size]').val('').trigger('change')
-    $('select[name=product]').val('').trigger('change')
-    $('select[name=pattern]').val('').trigger('change')
-    $('select[name=collar]').val('').trigger('change')
-    $('select[name=variant]').val('').trigger('change')
-    $('select[name=variant_2]').val('').trigger('change')
-    $('select[name=variant_3]').val('').trigger('change')
-    $('select[name=variant_4]').val('').trigger('change')
-    $('select[name=variant_5]').val('').trigger('change')
+    // $('select[name=category]').val('').trigger('change')
+    // $('select[name=size]').val('').trigger('change')
+    // $('select[name=product]').val('').trigger('change')
+    // $('select[name=pattern]').val('').trigger('change')
+    // $('select[name=collar]').val('').trigger('change')
+    // $('select[name=variant]').val('').trigger('change')
+    // $('select[name=variant_2]').val('').trigger('change')
+    // $('select[name=variant_3]').val('').trigger('change')
+    // $('select[name=variant_4]').val('').trigger('change')
+    // $('select[name=variant_5]').val('').trigger('change')
+
+    alert('Item berhasil di tambahkan')
 
     calculateTotalOrder()
 

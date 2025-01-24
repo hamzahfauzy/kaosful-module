@@ -23,7 +23,7 @@ $attr  = ['class'=>"form-control"];
                     <div class="row mb-3">
                         <label class="mb-2 col-4">No. Order</label>
                         <div class="col-8">
-                            <?= \Core\Form::input('text', 'trn_orders[order_number]', array_merge($attr, ['placeholder' => 'No. Order','required' => ''])) ?>
+                            <?= \Core\Form::input('text', 'trn_orders[order_number]', array_merge($attr, ['placeholder' => 'No. Order','readonly' => 'readonly','value' => $code])) ?>
                         </div>
                     </div>
                     <div class="row mb-3">

@@ -8,6 +8,7 @@ $tableName = 'trn_orders';
 $module = 'kaosful';
 $error_msg  = get_flash_msg('error');
 $old        = get_flash_msg('old');
+$db = new Database;
 
 if(Request::isMethod('POST'))
 {
@@ -16,7 +17,6 @@ if(Request::isMethod('POST'))
     $data['total_items'] = count($items);
     $data['total_qty'] = array_sum(array_column($items, 'qty'));
     $data['total_value'] = str_replace(',','',$data['total_value']);
-    $db = new Database;
     $order = $db->insert('trn_orders', $data);
 
     foreach($items as $index => $item)
@@ -83,4 +83,9 @@ Page::pushFoot("<script>$('.select2insidemodal').select2({dropdownParent: $('.mo
 
 Page::pushHook('create');
 
-return view('kaosful/views/orders/new/create', compact('error_msg','old','tableName'));
+$db->query = "SELECT COUNT(*) as `counter` FROM trn_orders WHERE created_at LIKE '%".date('Y-m')."%'";
+$counter = $db->exec('single')?->counter ?? 0;
+
+$code = "INV" . date('Ym') . sprintf("%04d", $counter+1);
+
+return view('kaosful/views/orders/new/create', compact('error_msg','old','tableName','code'));

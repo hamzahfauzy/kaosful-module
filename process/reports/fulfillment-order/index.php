@@ -57,6 +57,10 @@ $fields     = [
         'label' => 'Customer',
         'type' => 'options-obj:mst_customers,id,name'
     ],
+    'fulfillment_status' => [
+        'label' => 'Status',
+        'type' => 'text'
+    ],
 ];
 
 if(isset($_GET['draw']))

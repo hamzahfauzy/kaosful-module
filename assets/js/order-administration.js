@@ -11,6 +11,7 @@ $('.add-item-button').click(function(){
         key:items.length+1,
         item: itemValue.item.text,
         name: itemValue.name.val(),
+        size_name: $('#size_selected_label').html(),
         number_description: itemValue.number_description.val(),
         description: itemValue.description.val(),
     }
@@ -25,6 +26,7 @@ $('.add-item-button').click(function(){
                 ${items.length+1}
                 </td>
                 <td>${data.item}</td>
+                <td>${data.size_name}</td>
                 <td>${data.name}</td>
                 <td>${data.number_description}</td>
                 <td>${data.description}</td>
@@ -85,3 +87,13 @@ function calculateTotalOrder()
         $('input[name="trn_orders[total_qty]"]').val(items.length)
     }
 }
+
+$('select[name=item]').change(function(){
+    const item_id = $(this).val()
+    fetch('/kaosful/orders/items?id='+item_id)
+    .then(res => res.json())
+    .then(res => {
+        $('#size_selected_label').html(res.data.size_name)
+    })
+
+})

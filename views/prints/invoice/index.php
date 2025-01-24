@@ -13,7 +13,8 @@ $attr  = ['class'=>"form-control"];
             <?= \Core\Form::input('options-obj:trn_orders,id,order_number', 'item', ['class' => 'form-control select2', 'placeholder' => 'Pilih']) ?>
         </div>
         <div class="form-group">
-            <button class="btn btn-primary" onclick="printOrder()">Cetak</button>
+            <button class="btn btn-primary" onclick="printOrder()">Cetak Invoice</button>
+            <button class="btn btn-primary" onclick="printStruk()">Cetak Struk</button>
         </div>
     </div>
 </div>
@@ -21,7 +22,15 @@ $attr  = ['class'=>"form-control"];
 function printOrder()
 {
     const order_number = $('select[name=item]').find(':selected')[0].text
+    if(!order_number || order_number == '- Pilih -') return
     window.open('<?=routeTo('kaosful/prints/invoice/view', ['order_number' => 'varOrderNumber1'])?>'.replace('varOrderNumber1', order_number), '_blank')
+}
+
+function printStruk()
+{
+    const order_number = $('select[name=item]').find(':selected')[0].text
+    if(!order_number || order_number == '- Pilih -') return
+    window.open('<?=routeTo('kaosful/prints/invoice/struk', ['order_number' => 'varOrderNumber1'])?>'.replace('varOrderNumber1', order_number), '_blank')
 }
 
 </script>

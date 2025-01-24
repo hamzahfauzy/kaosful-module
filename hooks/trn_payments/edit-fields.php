@@ -14,5 +14,8 @@ foreach($orders as $order)
 }
 
 $fields['order_id']['type'] = 'options:'.json_encode($orderOptions);
+$fields['code']['attr'] = [
+    'readonly' => 'readonly',
+];
 
 return $fields;

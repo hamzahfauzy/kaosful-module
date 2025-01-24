@@ -407,7 +407,10 @@ return array (
 
   ],
   'trn_order_items' => [
-
+    'name' => [
+      'label' => 'Nama',
+      'type' => 'text'
+    ],
   ],
   'trn_payments' => [
     'code' => [
@@ -444,7 +447,7 @@ return array (
     ],
     'payment_method' => [
       'label' => 'Jenis Bayar',
-      'type' => 'options:CASH|TRANSFER|E-MONEY|BG (BILYET GIRO)',
+      'type' => 'options:CASH|TRANSFER|E-MONEY|BG (BILYET GIRO)|DISKON',
     ],
     'bank_id' => [
       'label' => 'Bank',

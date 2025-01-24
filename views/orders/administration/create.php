@@ -113,6 +113,7 @@ $attr  = ['class'=>"form-control"];
                         <tr>
                             <th>No</th>
                             <th>Item</th>
+                            <th>Ukuran</th>
                             <th>Nama</th>
                             <th>Nomor</th>
                             <th>Catatan</th>
@@ -124,6 +125,9 @@ $attr  = ['class'=>"form-control"];
                             <td></td>
                             <td>
                                 <?= \Core\Form::input('options-obj:trn_order_items,id,name|order_id,'.$data->id, 'item', array_merge($attr, ['class' => 'form-control', 'placeholder' => 'Pilih'])) ?>
+                            </td>
+                            <td>
+                                <span id="size_selected_label"></span>
                             </td>
                             <td>
                                 <input type="text" name="name" id="name" class="form-control">
