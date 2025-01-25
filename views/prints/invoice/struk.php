@@ -3,6 +3,9 @@ $date = \Core\Form::getData('date',$order->order_date);
 $doneDate = \Core\Form::getData('date',$order->order_done_date); 
 ?>
 <pre>
+<center>
+    <img src="<?=asset('assets/kaosful/img/logo.jpg')?>" alt="" width="100" height="100">
+</center>
 <?= centerText("KAOSFUL", 32) ?>
 
 <?= centerText("CUSTOM APPAREL & PRINTING", 32) ?>
