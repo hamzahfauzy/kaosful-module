@@ -206,3 +206,29 @@ function calculateTotalOrder()
         $('input[name="trn_orders[total_qty]"]').val(totalQty)
     }
 }
+
+$('.add-customer-button').click(function(){
+    const form = new FormData;
+    form.append('_token', $('#customer_form').find('input[name=_token]').val())
+    form.append('customer[name]', $('#customer_form').find('input[name=customer_name]').val())
+    form.append('customer[phone]', $('#customer_form').find('input[name=customer_phone]').val())
+
+    fetch('/kaosful/customers/create', {
+        'method' : 'POST',
+        'body' : form
+    })
+    .then(res => res.json())
+    .then(res => {
+        var data = {
+            id: res.data.id,
+            text: res.data.name
+        };
+        
+        var newOption = new Option(data.text, data.id, false, false);
+        $('select[name="trn_orders[customer_id]"]')
+                .append(newOption)
+                .val(data.id)
+                .trigger('change');
+        $('#customerModal').modal('hide')
+    })
+})

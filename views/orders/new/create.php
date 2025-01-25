@@ -35,7 +35,10 @@ $attr  = ['class'=>"form-control"];
                     <div class="row mb-3">
                         <label class="mb-2 col-4">Customer</label>
                         <div class="col-8">
-                            <?= \Core\Form::input('options-obj:mst_customers,id,name', 'trn_orders[customer_id]', array_merge($attr, ['placeholder' => 'Pilih Customer','required' => ''])) ?>
+                            <div class="d-flex">
+                                <?= \Core\Form::input('options-obj:mst_customers,id,name', 'trn_orders[customer_id]', array_merge($attr, ['placeholder' => 'Pilih Customer','required' => ''])) ?>
+                                <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#customerModal"><i class="fas fa-plus"></i></button>
+                            </div>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -152,6 +155,32 @@ $attr  = ['class'=>"form-control"];
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary add-item-button">Tambahkan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="customerModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="customerModalLabel">Form Customer</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="customer_form">
+        <?= csrf_field() ?>
+        <div class="form-group mb-3">
+            <label class="mb-2 w-100">Nama</label>
+            <input type="text" name="customer_name" id="" class="form-control">
+        </div>
+        <div class="form-group mb-3">
+            <label class="mb-2 w-100">No. HP</label>
+            <input type="tel" name="customer_phone" id="" class="form-control">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary use-walking-guest" data-bs-dismiss="modal">Tutup</button>
+        <button type="button" class="btn btn-primary add-customer-button">Simpan</button>
       </div>
     </div>
   </div>
