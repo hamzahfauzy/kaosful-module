@@ -18,6 +18,14 @@ $counter = $db->exec('single')?->counter ?? 0;
 
 $counter = sprintf("%04d", $counter+1);
 
+$db->query = "SELECT id, CONCAT(order_number,' (',FORMAT(coalesce(total_value,0)-coalesce(total_payment,0),0),')') name FROM trn_orders WHERE coalesce(total_value,0)-coalesce(total_payment,0) > 0";
+$orders = $db->exec('all');
+$orderOptions = [];
+foreach($orders as $order)
+{
+    $orderOptions[$order->name] = $order->id;
+}
+
 $fields['code']['attr'] = [
     'readonly' => 'readonly',
     'value' => 'KWT' . date('Ym'). $counter,
@@ -25,7 +33,11 @@ $fields['code']['attr'] = [
 
 $fields['order_id'] = [
     'label' => 'No. Order',
-    'type' => 'options-obj:trn_orders,id,(CONCAT(order_number," ",FORMAT(coalesce(total_value,0)-coalesce(total_payment,0),0)))'
+    'type' => 'options:'.json_encode($orderOptions),
+    'attr' => [
+        'placeholder' => '- Pilih -',
+        'required' => 'required'
+    ]
 ];
 
 return $fields;

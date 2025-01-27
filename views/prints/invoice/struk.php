@@ -3,9 +3,11 @@ $date = \Core\Form::getData('date',$order->order_date);
 $doneDate = \Core\Form::getData('date',$order->order_done_date); 
 ?>
 <pre>
+<div style="width:230px">
 <center>
     <img src="<?=asset('assets/kaosful/img/logo.jpg')?>" alt="" width="100" height="100">
 </center>
+</div>
 <?= centerText("KAOSFUL", 32) ?>
 
 <?= centerText("CUSTOM APPAREL & PRINTING", 32) ?>
@@ -55,4 +57,6 @@ Sisa <?=renderRight('Rp. '.number_format($total-$order->total_payment), 27)?>
 <?=centerText('Terima kasih sudah berbelanja disini', 32) ?>
 
 <?=centerText(date('d-m-Y H:i:s'), 32) ?>
+
+<?=centerText("Barang yang sudah diorder tidak dapat ditukar atau dikembalikan", 32) ?>
 </pre>

@@ -79,7 +79,7 @@ Page::pushFoot('<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dis
 Page::pushFoot("<script src='".asset('assets/crud/js/crud.js')."'></script>");
 Page::pushFoot("<script>var items = []</script>");
 Page::pushFoot("<script src='".asset('assets/kaosful/js/new-order.js')."'></script>");
-Page::pushFoot("<script>$('.select2insidemodal').select2({dropdownParent: $('.modal-body')});</script>");
+Page::pushFoot("<script>$('.select2insidemodal').select2({dropdownParent: $('#itemModal .modal-body')});</script>");
 
 Page::pushHook('create');
 

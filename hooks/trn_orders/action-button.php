@@ -27,6 +27,7 @@ if($route == 'kaosful/orders/new')
     '.(($isApproved) && $route == 'kaosful/orders/new' ? '
     <a class="dropdown-item" href="'.routeTo('kaosful/prints/order/view', ['order_number' => $data->order_number]).'" target="_blank"><i class="fa-solid fa-print"></i> Order</a>
     <a class="dropdown-item" href="'.routeTo('kaosful/prints/invoice/view', ['order_number' => $data->order_number]).'" target="_blank"><i class="fa-solid fa-print"></i> Invoice</a>
+    <a class="dropdown-item" href="'.routeTo('kaosful/prints/invoice/struk', ['order_number' => $data->order_number]).'" target="_blank"><i class="fa-solid fa-print"></i> Struk</a>
     ' : '') . '
     '.($isNew ? '
     '. ($route == 'kaosful/orders/new' ? '<a class="dropdown-item text-danger" onclick="if(confirm(\'Apakah anda yakin akan menghapus data ini ?\')){return true}else{return false}" href="'.routeTo('crud/delete', ['table' => 'trn_orders','id' => $data->id]).'"><i class="fa-solid fa-trash"></i> Delete</a>' : '') .'
