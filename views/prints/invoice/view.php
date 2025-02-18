@@ -8,9 +8,8 @@
             <b>KAOSFUL</b><br>
             <span>
                 CUSTOM APPAREL & PRINTING<br>
-                Jl. Cemara Boulevard no. 23 Komplek Cemara Asri<br>
-                Medan 20371, Indonesia<br>
-                0812221500 | 08122225656
+                Jl. Cemara Boulevard no. 23 Komplek Cemara Asri, Medan<br>
+                08122221500 | 08122225656
             </span>
         </td>
         <td colspan="2" style="border:0;padding-left:10;">

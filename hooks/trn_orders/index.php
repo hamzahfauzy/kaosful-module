@@ -57,7 +57,7 @@ if(in_array($route, ['kaosful/orders/new','kaosful/orders/administration','kaosf
                         LEFT JOIN (Select A.order_id, SUM(A.qty) as JlhQty, A.product_id, Coalesce(B.min_order, 0) As min_order, Coalesce(B.max_order, 0) As max_order From trn_order_items A Inner Join (Select id, min_order, max_order From mst_products) B On A.product_id = B.id Group By A.order_id, A.product_id, Coalesce(B.min_order, 0), Coalesce(B.max_order, 0) Having SUM(A.qty) < min_order And max_order > SUM(A.qty) LIMIT 1) validator ON validator.order_id = trn_orders.id
                         $where";
                         
-    $this->db->query = $query . " ORDER BY ".$col_order." ".$order[0]['dir']." LIMIT $start,$length";
+    $this->db->query = $query . " ORDER BY trn_orders.order_date DESC, trn_orders.order_number DESC LIMIT $start,$length";
     $data  = $this->db->exec('all');
 
     $this->db->query = $query;

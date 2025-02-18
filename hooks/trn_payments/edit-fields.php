@@ -18,4 +18,6 @@ $fields['code']['attr'] = [
     'readonly' => 'readonly',
 ];
 
+unset($fields['customer_name']);
+
 return $fields;

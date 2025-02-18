@@ -5,18 +5,19 @@ $doneDate = \Core\Form::getData('date',$order->order_done_date);
 <pre>
 <div style="width:230px">
 <center>
-    <img src="<?=asset('assets/kaosful/img/logo.jpg')?>" alt="" width="100" height="100">
+    <img src="<?=asset('assets/kaosful/img/logo.jpg')?>" alt="" width="100" height="81">
 </center>
 </div>
+--------------------------------
 <?= centerText("KAOSFUL", 32) ?>
 
 <?= centerText("CUSTOM APPAREL & PRINTING", 32) ?>
 
 <?= centerText("Jl. Cemara Boulevard no. 23 Komplek", 32) ?>
 
-<?= centerText("Cemara Asri, Medan 20371, Indonesia", 32) ?>
+<?= centerText("Cemara Asri, Medan", 32) ?>
 
-<?= centerText("0812221500 / 08122225656", 32) ?>
+<?= centerText("08122221500 / 08122225656", 32) ?>
 
 
 <?= centerText("INVOICE", 32) ?>

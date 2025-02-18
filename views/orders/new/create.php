@@ -47,6 +47,12 @@ $attr  = ['class'=>"form-control"];
                             <?= \Core\Form::input('text', 'trn_orders[total_value]', array_merge($attr, ['placeholder' => 'Total Nilai Order','readonly'=>'readonly'])) ?>
                         </div>
                     </div>
+                    <div class="row mb-3">
+                        <label class="mb-2 col-4">Total Qty</label>
+                        <div class="col-8">
+                            <input type="text" name="trn_orders[total_qty]" class="form-control" readonly value="">
+                        </div>
+                    </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="row mb-3">

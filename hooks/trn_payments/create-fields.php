@@ -40,4 +40,6 @@ $fields['order_id'] = [
     ]
 ];
 
+unset($fields['customer_name']);
+
 return $fields;

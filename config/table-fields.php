@@ -431,6 +431,11 @@ return array (
         'required' => 'required'
       ]
     ],
+    'customer_name' => [
+      'label' => 'Customer',
+      'type' => 'text',
+      'search' => 'mst_customers.name'
+    ],
     'payment_type' => [
       'label' => 'Tipe Bayar',
       'type' => 'options:DP / Tanda Jadi|Pelunasan',
